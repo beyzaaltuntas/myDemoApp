@@ -17,12 +17,16 @@ import spark.template.mustache.MustacheTemplateEngine;
 public class App 
 {
     
-    public static boolean control(ArrayList<Integer> array1, Integer[] array2,int index1, int index2) {
+    public static boolean control(ArrayList<Integer> array1, Integer[] array2,Integer index1, Integer index2) {
         	    	if (array1 == null) return false;
         	    	if (array2 == null) return false;
+                    if (index1 == null) return false;
+                    if (index2 ==  null) return false;
         	    	
         	    	if(array1.isEmpty() || array2.length==0)
              			return false;
+                   
+     
         	    	
         	    	if( index1<0 || index2<0 ||index2<index1 || index1>=array1.size() || index2>=array1.size() ||  index1>=array2.length ||index2>=array2.length  )
         	    		return false;
@@ -60,17 +64,11 @@ public class App
                             sc2.useDelimiter("[;\r\n]+");
                             java.util.ArrayList<Integer> arr = new java.util.ArrayList<>();
                             int i=0;
-                            String x;
                             while (sc2.hasNext())
                             {   
-                                if(sc2.next().equals("")){
-                                arr.add(-1);
-                                i++;
-                                }
-                                else{
                                 int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
                                 arr.add(value);
-                                i++;}
+                                i++;
                             }
                             
                             Integer[] inputList2=new Integer[i];
@@ -79,9 +77,9 @@ public class App
                             }
 
                             String input3 = req.queryParams("input3").replaceAll("\\s","");
-                            int input3AsInt = Integer.parseInt(input3);
+                            Integer input3AsInt = Integer.parseInt(input3);
                             String input4 = req.queryParams("input4").replaceAll("\\s","");
-                            int input4AsInt = Integer.parseInt(input4);
+                            Integer input4AsInt = Integer.parseInt(input4);
 
                             boolean result = App.control(inputList, inputList2 , input3AsInt,input4AsInt);
 

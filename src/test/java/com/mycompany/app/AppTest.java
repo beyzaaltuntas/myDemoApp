@@ -111,4 +111,16 @@ public class AppTest
         		   	 ArrayList<Integer> array1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
         		      assertFalse(new App().control(array1,null,1,2));
         		   }
+        
+                  public void testNull3() {
+                        ArrayList<Integer> array1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+                    	 Integer[] array2 = new Integer[]{2,3,4};
+                    	   assertFalse(new App().control(array1,array2,null,2));
+                    			   }
+                    	      
+                   public void testNull4() {
+                     	 ArrayList<Integer> array1 = new ArrayList<>(Arrays.asList(1, 2, 3, 4));
+                  	   	Integer[] array2 = new Integer[]{2,3,4};
+                   	      assertFalse(new App().control(array1,array2,1,null));
+                    			   }
 }
