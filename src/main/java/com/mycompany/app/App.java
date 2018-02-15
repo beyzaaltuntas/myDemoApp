@@ -77,7 +77,11 @@ public class App
                             }
 
                             String input3 = req.queryParams("input3").replaceAll("\\s","");
+                            if(input3.equals("") || input3==null)
+                            Integer input3AsInt = -1;
+                            else
                             Integer input3AsInt = Integer.parseInt(input3);
+                            
                             String input4 = req.queryParams("input4").replaceAll("\\s","");
                             Integer input4AsInt = Integer.parseInt(input4);
 
