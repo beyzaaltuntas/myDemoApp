@@ -60,11 +60,17 @@ public class App
                             sc2.useDelimiter("[;\r\n]+");
                             java.util.ArrayList<Integer> arr = new java.util.ArrayList<>();
                             int i=0;
+                            String x;
                             while (sc2.hasNext())
-                            {
+                            {   
+                                if(sc2.next().equals("")){
+                                arr.add(-1);
+                                i++;
+                                }
+                                else{
                                 int value = Integer.parseInt(sc2.next().replaceAll("\\s",""));
                                 arr.add(value);
-                                i++;
+                                i++;}
                             }
                             
                             Integer[] inputList2=new Integer[i];
